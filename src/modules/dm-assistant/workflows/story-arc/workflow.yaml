@@ -1,0 +1,47 @@
+# Story Arc Planning Workflow Configuration
+name: story-arc
+description: "Interactive workflow to plan long-term narrative arcs, character development, and campaign milestones for D&D campaigns"
+author: "DM Assistant"
+
+# Paths
+installed_path: '{project-root}/_bmad/dnd/workflows/story-arc'
+template: '{installed_path}/template.md'
+instructions: '{installed_path}/instructions.md'
+validation: '{installed_path}/checklist.md'
+arc_structure_guide: '{installed_path}/arc-structure-guide.md'
+
+# Critical variables from config
+config_source: '{project-root}/_bmad/dnd/config.yaml'
+output_folder: '{config_source}:output_folder'
+user_name: '{config_source}:user_name'
+communication_language: '{config_source}:communication_language'
+campaign_path: '{config_source}:campaign_path'
+campaign_name: '{config_source}:campaign_name'
+date: system-generated
+
+# Output configuration
+default_output_file: '{campaign_path}/{{campaign_name}}/story-arcs/{{arc_name}}-arc.md'
+
+# Reference data for story arc planning
+arc_types: "Character Development, Political Intrigue, Mystery Investigation, Epic Quest, Exploration, War Campaign, Divine Intervention, Planar Adventure"
+arc_lengths: "Short (2-4 sessions), Medium (5-8 sessions), Long (9-15 sessions), Epic (16+ sessions)"
+pacing_elements: "Introduction, Rising Action, Climax, Resolution, Consequences"
+character_roles: "Protagonist, Catalyst, Support, Opposition, Mentor, Wild Card"
+
+# Invocation control
+standalone: true
+
+# Web bundle configuration
+web_bundle:
+  name: 'story-arc'
+  description: 'D&D campaign story arc planning and narrative development'
+  author: 'DM Assistant'
+  instructions: '_bmad/dnd/workflows/story-arc/instructions.md'
+  validation: '_bmad/dnd/workflows/story-arc/checklist.md'  
+  template: '_bmad/dnd/workflows/story-arc/template.md'
+  
+  web_bundle_files:
+    - '_bmad/dnd/workflows/story-arc/instructions.md'
+    - '_bmad/dnd/workflows/story-arc/checklist.md'
+    - '_bmad/dnd/workflows/story-arc/template.md'
+    - '_bmad/dnd/workflows/story-arc/arc-structure-guide.md'

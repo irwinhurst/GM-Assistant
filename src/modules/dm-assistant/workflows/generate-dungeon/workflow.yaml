@@ -1,0 +1,91 @@
+workflow:
+  metadata:
+    id: 'generate-dungeon'
+    name: 'Generate 5-Room Dungeon'
+    description: 'Create complete 5-room dungeon using proven methodology'
+    version: '1.0.0'
+    author: 'DM Assistant'
+
+  installed_path: '{project-root}/src/modules/dm-assistant/workflows/generate-dungeon'
+  instructions: '{installed_path}/README.md'
+  validation: '{installed_path}/README.md'
+
+  output:
+    default_output_folder: '{project-root}/sessions/{session_name}/dungeons/{dungeon_name}/'
+    default_output_files:
+      - '{dungeon_name}-complete.md'
+      - 'dungeon-index.md'
+
+  integration:
+    compatible_agents:
+      - session-prep
+      - campaign-manager
+    compatible_workflows:
+      - create-area
+      - update-area
+
+
+  steps:
+    - step: 'dungeon-parameters'
+      title: 'Define Dungeon Parameters'
+      description: 'Set party level, theme, and basic requirements'
+      template: 'dungeon-parameters.md'
+      
+    - step: 'theme-selection'
+      title: 'Choose Dungeon Theme'
+      description: 'Select thematic elements and aesthetic style'
+      template: 'theme-selection.md'
+      
+    - step: 'room-generation'
+      title: 'Generate 5-Room Structure'
+      description: 'Create each room following 5-room methodology'
+      template: '../five-room-template.md'
+      
+    - step: 'encounter-scaling'
+      title: 'Scale Encounters'
+      description: 'Adjust difficulty for target party level and size'
+      template: 'encounter-scaling.md'
+      
+    - step: 'map-creation'
+      title: 'Create Dungeon Map'
+      description: 'Design spatial layout and room connections'
+      template: 'map-creation.md'
+      
+    - step: 'session-integration'
+      title: 'Prepare Session Files'
+      description: 'Generate individual area files for session runner'
+      template: 'session-integration.md'
+
+
+  web_bundle:
+    name: 'generate-dungeon'
+    description: 'Workflow for generating 5-room dungeons and session files.'
+    author: 'DM Assistant'
+    instructions: 'README.md'
+    validation: 'README.md'
+    template: '../five-room-template.md'
+    web_bundle_files:
+      - 'README.md'
+      - '../five-room-template.md'
+      - '../create-area/area-template.md'
+      - '../create-area/combat-encounter-template.md'
+      - '../create-area/trap-encounter-template.md'
+      - '../create-area/social-encounter-template.md'
+      - '../create-area/generic-encounter-template.md'
+      - 'slyflourish-benchmark-guide.md'
+
+  completion:
+    message: '5-Room Dungeon generated successfully. All session files ready for play.'
+    next_steps:
+      - 'Review generated rooms for campaign fit'
+      - 'Adjust encounters based on party composition'
+      - 'Prepare battle maps if using tactical combat'
+      - 'Use session-runner to load dungeon areas'
+
+  documentation:
+    - '../create-area/area-template.md'
+    - '../create-area/combat-encounter-template.md'
+    - '../create-area/trap-encounter-template.md'
+    - '../create-area/social-encounter-template.md'
+    - '../create-area/generic-encounter-template.md'
+    - 'slyflourish-benchmark-guide.md'

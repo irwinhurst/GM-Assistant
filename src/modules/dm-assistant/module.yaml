@@ -1,0 +1,12 @@
+code: dnd
+name: 'DM Assistant'
+default_selected: true
+
+header: 'DM Assistant Module'
+subheader: 'Automated tools and workflows for D&D campaign management, session prep, and adventure design.'
+
+# Example configuration prompt (customize as needed)
+custom_setting:
+  prompt: 'Enter the to the campaign'
+  default: 'campaign'
+  result: '{campaign_path}'

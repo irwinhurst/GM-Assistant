@@ -1,0 +1,39 @@
+workflow:
+  metadata:
+    id: 'session-summary'
+    name: 'Session Summary Generator'
+    description: 'Review session log and generate comprehensive summary'
+    version: '1.0.0'
+
+  steps:
+    - step: 'review-log'
+      title: 'Review Session Log'
+      description: 'Analyze all logged events from current session'
+      
+    - step: 'character-updates'
+      title: 'Compile Character Changes'
+      description: 'Track HP, conditions, experience, equipment changes'
+      
+    - step: 'story-progress'
+      title: 'Summarize Story Progress'
+      description: 'Identify key plot developments and decisions'
+      
+    - step: 'generate-summary'
+      title: 'Create Session Summary'
+      description: 'Compile comprehensive session recap'
+      
+    - step: 'update-continuity'
+      title: 'Update Campaign Continuity'
+      description: 'Record session outcomes for future reference'
+
+  outputs:
+    - 'session-summary.md'
+    - 'character-updates.md'
+    - 'campaign-continuity-notes.md'
+
+  completion:
+    message: 'Session summary complete. Character files updated.'
+    next_steps:
+      - 'Share session recap with players if desired'
+      - 'Use summary for next session preparation'
+      - 'Archive session materials'

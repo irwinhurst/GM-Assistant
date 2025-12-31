@@ -1,0 +1,55 @@
+# Dungeon Master Assistant Module Manifest
+
+code: dm-assistant
+name: "Dungeon Master Assistant"
+version: "1.0.0"
+author: "irwin"
+description: "Comprehensive toolkit for D&D 2024 campaign management and session preparation."
+
+bmad_core_version: ">=6.0.0"
+default_selected: false
+
+agents:
+  - campaign-manager
+  - npc-generator
+  - session-prep
+  - pc-documenter
+  - session-runner
+  - dungeon-generator
+
+workflows:
+  - campaign-startup
+  - create-area
+  - import-adventure
+  - load-area
+  - start-combat
+  - lookup-rules
+  - session-summary
+  - story-arc
+
+templates:
+  - area-template.md
+  - combat-encounter-template.md
+  - trap-encounter-template.md
+  - social-encounter-template.md
+  - generic-encounter-template.md
+
+data:
+  - characters/
+  - npcs/
+  - areas/
+  - encounters/
+  - sessions/
+
+installer:
+  - module-installer/install-config.yaml
+
+readme: README.md
+implementation_status: IMPLEMENTATION-STATUS.md
+todo: TODO.md
+
+# Add any additional dependencies or notes below
+# dependencies:
+#   - some-external-module
+# notes:
+#   - "Ensure all referenced files exist before packaging."

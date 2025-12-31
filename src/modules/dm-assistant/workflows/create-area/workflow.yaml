@@ -1,0 +1,48 @@
+# Create Area Workflow Configuration
+name: create-area
+description: "Standardized workflow for creating area files in dungeons and adventures. Uses approved templates for consistent structure and integration."
+author: "DM Assistant"
+
+# Paths
+installed_path: '{project-root}/src/modules/dm-assistant/workflows/create-area'
+template: '{installed_path}/area-template.md'
+instructions: '{installed_path}/README.md'
+validation: '{installed_path}/README.md'
+
+# Output configuration
+default_output_folder: '{project-root}/sessions/{session_name}/areas/'
+default_output_file: 'area-{area_number}-{sanitized_area_name}.md'
+
+# Encounter templates
+combat_template: '{installed_path}/combat-encounter-template.md'
+social_template: '{installed_path}/social-encounter-template.md'
+trap_template: '{installed_path}/trap-encounter-template.md'
+generic_template: '{installed_path}/generic-encounter-template.md'
+
+# Invocation control
+standalone: true
+
+# Integration
+compatible_agents:
+  - session-prep
+  - dungeon-generator
+  - campaign-manager
+compatible_workflows:
+  - update-area
+  - import-adventure
+
+# Web bundle configuration
+web_bundle:
+  name: 'create-area'
+  description: 'Area creation workflow for dungeons and adventures'
+  author: 'DM Assistant'
+  instructions: 'README.md'
+  validation: 'README.md'
+  template: 'area-template.md'
+  web_bundle_files:
+    - 'README.md'
+    - 'area-template.md'
+    - 'combat-encounter-template.md'
+    - 'social-encounter-template.md'
+    - 'trap-encounter-template.md'
+    - 'generic-encounter-template.md'

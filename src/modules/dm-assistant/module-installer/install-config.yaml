@@ -1,0 +1,46 @@
+# Dungeon Master Assistant Module Configuration
+# This file defines installation questions and module configuration values
+
+code: dm-assistant
+name: "Dungeon Master Assistant"
+default_selected: false # Set to true if this should be selected by default
+
+# Welcome message shown during installation
+prompt:
+  - "Thank you for choosing Dungeon Master Assistant!"
+  - "A comprehensive toolkit for D&D 2024 edition campaign management and session preparation."
+
+# Core config values are automatically inherited:
+## user_name
+## communication_language
+## document_output_language
+## output_folder
+
+# ============================================================================
+# CONFIGURATION FIELDS
+# ============================================================================
+# Each field can be:
+# 1. INTERACTIVE (has 'prompt' - asks user during installation)
+# 2. STATIC (no 'prompt' - just uses 'result' value)
+# ============================================================================
+
+# Campaign management configuration
+campaign_path:
+  prompt: "Where should campaign files be saved?"
+  default: "campaigns"
+  result: "{project-root}/{value}"
+
+campaign_name:
+  prompt: "What is your current campaign name? (can be changed later)"
+  default: "My Campaign"
+  result: "{value}"
+
+# Static configuration values
+module_version:
+  result: "1.0.0"
+
+data_path:
+  result: "{project-root}/_bmad/dnd/data"
+
+rules_edition:
+  result: "D&D 2024"

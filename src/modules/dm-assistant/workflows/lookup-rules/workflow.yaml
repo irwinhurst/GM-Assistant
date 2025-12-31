@@ -1,0 +1,35 @@
+workflow:
+  metadata:
+    id: 'lookup-rules'
+    name: 'Rule Reference Lookup'
+    description: 'Quick reference for spells, conditions, abilities during play'
+    version: '1.0.0'
+
+  steps:
+    - step: 'identify-reference'
+      title: 'Identify Reference Type'
+      description: 'Determine what type of rule lookup is needed'
+      
+    - step: 'retrieve-information'
+      title: 'Retrieve Rule Information'
+      description: 'Find and display requested rule details'
+      
+    - step: 'present-details'
+      title: 'Present Information'
+      description: 'Show rule details formatted for quick table use'
+
+  reference_types:
+    - 'spell': 'Spell descriptions, components, duration, effects'
+    - 'condition': 'Status effect details and mechanical impacts'
+    - 'ability': 'Creature abilities and special powers'
+    - 'equipment': 'Weapon/armor statistics and properties'
+    - 'rule': 'General game mechanics and procedures'
+
+  outputs:
+    - 'quick-reference-display'
+
+  completion:
+    message: 'Rule reference displayed. No session log entry created.'
+    next_steps:
+      - 'Return to current session activity'
+      - 'Apply rule information to ongoing situation'

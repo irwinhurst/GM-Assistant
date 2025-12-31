@@ -1,0 +1,46 @@
+# Campaign Startup Workflow Configuration
+name: campaign-startup
+description: "Interactive workflow to initialize new D&D 2024 campaigns with world-building, player setup, and foundational campaign structure"
+author: "DM Assistant"
+
+# Paths
+installed_path: '{project-root}/_bmad/dnd/workflows/campaign-startup'
+template: '{installed_path}/template.md'
+instructions: '{installed_path}/instructions.md'
+validation: '{installed_path}/checklist.md'
+character_template: '{project-root}/_bmad/dnd/agents/pc-documenter/character-template.md'
+
+# Critical variables from config
+config_source: '{project-root}/_bmad/dnd/config.yaml'
+output_folder: '{config_source}:output_folder'
+user_name: '{config_source}:user_name'
+communication_language: '{config_source}:communication_language'
+campaign_path: '{config_source}:campaign_path'
+campaign_name: '{config_source}:campaign_name'
+date: system-generated
+
+# Output configuration
+default_output_file: '{campaign_path}/{{campaign_name}}/campaign-foundation.md'
+
+# Reference data for campaign creation
+rules_edition: "D&D 2024"
+dnd_classes: "Fighter, Ranger, Rogue, Barbarian, Monk, Paladin, Bard, Cleric, Druid, Sorcerer, Warlock, Wizard"
+dnd_races: "Human, Elf, Dwarf, Halfling, Dragonborn, Gnome, Half-Elf, Half-Orc, Tiefling"
+
+# Invocation control
+standalone: true
+
+# Web bundle configuration
+web_bundle:
+  name: 'campaign-startup'
+  description: 'D&D 2024 campaign initialization and world-building'
+  author: 'DM Assistant'
+  instructions: '_bmad/dnd/workflows/campaign-startup/instructions.md'
+  validation: '_bmad/dnd/workflows/campaign-startup/checklist.md'  
+  template: '_bmad/dnd/workflows/campaign-startup/template.md'
+  
+  web_bundle_files:
+    - '_bmad/dnd/workflows/campaign-startup/instructions.md'
+    - '_bmad/dnd/workflows/campaign-startup/checklist.md'
+    - '_bmad/dnd/workflows/campaign-startup/template.md'
+    - '_bmad/dnd/agents/pc-documenter/character-template.md'
