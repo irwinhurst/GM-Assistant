@@ -1,10 +1,9 @@
 installation:
-  version: 6.0.0-alpha.18
-  installDate: 2025-12-17T19:44:55.853Z
-  lastUpdated: 2025-12-17T19:44:55.853Z
+  version: 6.0.0-alpha.22
+  installDate: 2025-12-31T18:02:05.202Z
+  lastUpdated: 2025-12-31T18:02:05.203Z
 modules:
   - core
   - bmb
-  - custom
 ides:
-  - github-copilot
+  - antigravity
