@@ -39,7 +39,7 @@ workflow:
     - step: 'room-generation'
       title: 'Generate 5-Room Structure'
       description: 'Create each room following 5-room methodology'
-      template: '../five-room-template.md'
+      template: '{project-root}/src/modules/dm-assistant/agents/dungeon-generator/dungeon-generator-sidecar/five-room-template.md'
       
     - step: 'encounter-scaling'
       title: 'Scale Encounters'
@@ -63,10 +63,10 @@ workflow:
     author: 'DM Assistant'
     instructions: 'README.md'
     validation: 'README.md'
-    template: '../five-room-template.md'
+    template: '{project-root}/src/modules/dm-assistant/agents/dungeon-generator/dungeon-generator-sidecar/five-room-template.md'
     web_bundle_files:
       - 'README.md'
-      - '../five-room-template.md'
+      - '{project-root}/src/modules/dm-assistant/agents/dungeon-generator/dungeon-generator-sidecar/five-room-template.md'
       - '../create-area/area-template.md'
       - '../create-area/combat-encounter-template.md'
       - '../create-area/trap-encounter-template.md'

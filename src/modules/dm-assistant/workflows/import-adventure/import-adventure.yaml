@@ -57,20 +57,20 @@ workflow:
     - step: 'generate-areas'
       title: 'Generate Area Files'
       description: 'Create individual area markdown files using the area template'
-      template: '../create-area/area-template.md'
+      template: '{project-root}/src/modules/dm-assistant/workflows/create-area/area-template.md'
       
     - step: 'create-encounters'
       title: 'Extract and Analyze Encounters'
       description: 'Identify encounters and apply SlyFlourish benchmark analysis'
       template: >
         {{#if (eq encounter.type "combat")}}
-          ../create-area/combat-encounter-template.md
+          {project-root}/src/modules/dm-assistant/workflows/create-area/combat-encounter-template.md
         {{else if (eq encounter.type "trap")}}
-          ../create-area/trap-encounter-template.md
+          {project-root}/src/modules/dm-assistant/workflows/create-area/trap-encounter-template.md
         {{else if (eq encounter.type "social")}}
-          ../create-area/social-encounter-template.md
+          {project-root}/src/modules/dm-assistant/workflows/create-area/social-encounter-template.md
         {{else}}
-          ../create-area/generic-encounter-template.md
+          {project-root}/src/modules/dm-assistant/workflows/create-area/generic-encounter-template.md
         {{/if}}
       
     - step: 'link-navigation'
@@ -95,11 +95,11 @@ workflow:
       - 'README.md'
       - 'processing-guide.md'
       - 'encounter-extraction.md'
-      - '../create-area/area-template.md'
-      - '../create-area/combat-encounter-template.md'
-      - '../create-area/trap-encounter-template.md'
-      - '../create-area/social-encounter-template.md'
-      - '../create-area/generic-encounter-template.md'
+      - '{project-root}/src/modules/dm-assistant/workflows/create-area/area-template.md'
+      - '{project-root}/src/modules/dm-assistant/workflows/create-area/combat-encounter-template.md'
+      - '{project-root}/src/modules/dm-assistant/workflows/create-area/trap-encounter-template.md'
+      - '{project-root}/src/modules/dm-assistant/workflows/create-area/social-encounter-template.md'
+      - '{project-root}/src/modules/dm-assistant/workflows/create-area/generic-encounter-template.md'
 
   completion:
     message: 'Adventure import complete. Area files and encounter difficulty analysis generated.'

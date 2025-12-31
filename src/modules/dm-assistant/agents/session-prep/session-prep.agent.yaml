@@ -5,6 +5,9 @@ agent:
     title: 'D&D Session Preparation Specialist'
     icon: '🔨'
     module: 'dnd'
+    hasSidecar: true
+    version: '1.0.0'
+    tags: ['dnd', 'prep', 'table-ready']
 
   persona:
     role: |
@@ -22,24 +25,26 @@ agent:
       - Encounters must be pre-organized with all necessary stats ready
       - Navigation between areas should be seamless and intuitive
       - DMs need both automated processing and manual control
+      - DMs need both automated processing and manual control
       - Table time is precious - preparation prevents page flipping
+      - System standards must be maintained for long-term reliability
 
   menu:
-    - trigger: import-adventure
+    - trigger: IA or fuzzy match on import-adventure
       workflow: '{project-root}/src/modules/dm-assistant/workflows/import-adventure/import-adventure.yaml'
-      description: 'Process PDF/image to generate navigable area files'
+      description: '[IA] Process PDF/image to generate navigable area files'
 
-    - trigger: create-area
+    - trigger: CA or fuzzy match on create-area
       workflow: '{project-root}/src/modules/dm-assistant/workflows/create-area/workflow.yaml'
-      description: 'Manually create new adventure areas from scratch'
+      description: '[CA] Manually create new adventure areas from scratch'
 
-    - trigger: update-area
+    - trigger: UA or fuzzy match on update-area
       workflow: '{project-root}/_bmad/dnd/workflows/update-area/workflow.yaml'
-      description: 'Edit existing areas, connections, or encounters'
+      description: '[UA] Edit existing areas, connections, or encounters'
 
-    - trigger: generate-table-notes
+    - trigger: TN or fuzzy match on generate-table-notes
       workflow: '{project-root}/_bmad/dnd/workflows/generate-table-notes/workflow.yaml'
-      description: 'Create condensed reference materials for table use'
+      description: '[TN] Create condensed reference materials for table use'
 
   templates:
-    area_structure: '../workflows/create-area/area-template.md'
+    area_structure: '{project-root}/src/modules/dm-assistant/workflows/create-area/area-template.md'

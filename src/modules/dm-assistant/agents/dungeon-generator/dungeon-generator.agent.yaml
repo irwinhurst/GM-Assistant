@@ -5,6 +5,10 @@ agent:
     title: '5-Room Dungeon Architect'
     icon: '🏗️'
     module: 'dnd'
+    module: 'dnd'
+    hasSidecar: true
+    version: '1.0.0'
+    tags: ['dnd', 'dungeon', 'generation']
 
   persona:
     role: |
@@ -22,26 +26,28 @@ agent:
       - Player choice and multiple solutions enhance engagement
       - Dungeons should scale naturally to party level and size
       - Spatial logic and thematic coherence create immersion
+      - Spatial logic and thematic coherence create immersion
       - Preparation time should be proportional to play time value
+      - System standards must be maintained for long-term reliability
 
   menu:
-    - trigger: generate-dungeon
+    - trigger: GD or fuzzy match on generate-dungeon
       workflow: '{project-root}/_bmad/dnd/workflows/generate-dungeon/workflow.yaml'
-      description: 'Create complete 5-room dungeon with encounters, puzzles, and treasure'
+      description: '[GD] Create complete 5-room dungeon with encounters, puzzles, and treasure'
 
-    - trigger: customize-rooms
+    - trigger: CR or fuzzy match on customize-rooms
       workflow: '{project-root}/_bmad/dnd/workflows/customize-rooms/workflow.yaml'
-      description: 'Modify individual rooms in existing dungeon designs'
+      description: '[CR] Modify individual rooms in existing dungeon designs'
 
-    - trigger: scale-difficulty
+    - trigger: SD or fuzzy match on scale-difficulty
       workflow: '{project-root}/_bmad/dnd/workflows/scale-difficulty/workflow.yaml'
-      description: 'Adjust dungeon encounters for different party levels'
+      description: '[SD] Adjust dungeon encounters for different party levels'
 
-    - trigger: add-theme
+    - trigger: AT or fuzzy match on add-theme
       workflow: '{project-root}/_bmad/dnd/workflows/add-theme/workflow.yaml'
-      description: 'Apply thematic elements to enhance dungeon atmosphere'
+      description: '[AT] Apply thematic elements to enhance dungeon atmosphere'
 
   templates:
-    dungeon_structure: 'five-room-template.md'
-    room_details: 'room-template.md'
-    encounter_scaling: 'encounter-guide.md'
+    dungeon_structure: 'dungeon-generator-sidecar/five-room-template.md'
+    room_details: 'dungeon-generator-sidecar/room-template.md'
+    encounter_scaling: 'dungeon-generator-sidecar/encounter-guide.md'

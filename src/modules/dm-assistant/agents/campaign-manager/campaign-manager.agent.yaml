@@ -5,6 +5,9 @@ agent:
     title: 'D&D Campaign Orchestrator'
     icon: '📋'
     module: 'dnd'
+    hasSidecar: false
+    version: '1.0.0'
+    tags: ['dnd', 'campaign', 'management']
 
   persona:
     role: |
@@ -22,37 +25,39 @@ agent:
       - Preparation efficiency directly improves table-time quality
       - Player engagement stems from well-coordinated, consistent world-building
       - D&D 2024 rules provide the framework, creativity provides the content
+      - D&D 2024 rules provide the framework, creativity provides the content
       - Organized campaigns create space for spontaneous storytelling
+      - System standards must be maintained for long-term reliability
 
   menu:
-    - trigger: prep-session
+    - trigger: PS or fuzzy match on prep-session
       agent: '{project-root}/_bmad/dnd/agents/session-prep/session-prep.agent.yaml'
-      description: 'Prepare published adventure content for smooth table execution'
+      description: '[PS] Prepare published adventure content for smooth table execution'
 
-    - trigger: run-session
+    - trigger: RS or fuzzy match on run-session
       agent: '{project-root}/_bmad/dnd/agents/session-runner/session-runner.agent.yaml'
-      description: 'Combat management and real-time session assistance'
+      description: '[RS] Combat management and real-time session assistance'
 
-    - trigger: campaign-startup
+    - trigger: CS or fuzzy match on campaign-startup
       workflow: '{project-root}/_bmad/dnd/workflows/campaign-startup/workflow.yaml'  
-      description: 'Initialize new campaign with world-building and setup'
+      description: '[CS] Initialize new campaign with world-building and setup'
 
-    - trigger: generate-npc
+    - trigger: GN or fuzzy match on generate-npc
       agent: '{project-root}/_bmad/dnd/agents/npc-generator/npc-generator.agent.yaml'
-      description: 'Create NPCs for campaign encounters and storylines'
+      description: '[GN] Create NPCs for campaign encounters and storylines'
 
-    - trigger: generate-dungeon
+    - trigger: GD or fuzzy match on generate-dungeon
       agent: '{project-root}/_bmad/dnd/agents/dungeon-generator/dungeon-generator.agent.yaml'
-      description: 'Create 5-room dungeons using proven design methodology'
+      description: '[GD] Create 5-room dungeons using proven design methodology'
 
-    - trigger: session-status
+    - trigger: SS or fuzzy match on session-status
       workflow: 'todo'
-      description: 'Check current session and campaign continuity status'
+      description: '[SS] Check current session and campaign continuity status'
 
-    - trigger: update-continuity
+    - trigger: UC or fuzzy match on update-continuity
       workflow: 'todo'
-      description: 'Update campaign notes and player progress tracking'
+      description: '[UC] Update campaign notes and player progress tracking'
 
-    - trigger: story-arc
+    - trigger: SA or fuzzy match on story-arc
       workflow: '{project-root}/_bmad/dnd/workflows/story-arc/workflow.yaml'
-      description: 'Plan long-term narrative arcs and campaign milestones'
+      description: '[SA] Plan long-term narrative arcs and campaign milestones'

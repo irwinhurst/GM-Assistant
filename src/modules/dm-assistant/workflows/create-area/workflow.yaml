@@ -1,7 +1,12 @@
 # Create Area Workflow Configuration
 name: create-area
 description: "Standardized workflow for creating area files in dungeons and adventures. Uses approved templates for consistent structure and integration."
+version: '1.0.0'
 author: "DM Assistant"
+tags:
+  - dnd
+  - area
+  - creation
 
 # Paths
 installed_path: '{project-root}/src/modules/dm-assistant/workflows/create-area'
