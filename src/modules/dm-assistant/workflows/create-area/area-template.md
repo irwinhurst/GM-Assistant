@@ -5,13 +5,16 @@
 **Session**: {session_name}
 **File**: sessions/{session_name}/areas/area-{area_number}-{sanitized_area_name}.md
 
+## Description of Dimensions
+{area_from_map}
+
 ## Description
 {area_players_description}
 
 ## Enhanced Description
-{area_enhaced_description}
+{area_AI_enhanced_description}
 
-## DM Information
+## DM Information/Notes
 {area_DM_information}
 
 ## Key Features

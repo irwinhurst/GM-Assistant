@@ -5,8 +5,8 @@ A comprehensive toolkit for D&D 2024 edition campaign management and session pre
 ## Overview
 
 This module provides:
-- **7 Professional Agents** for content generation and session management
-- **4 Core Workflows** covering preparation, encounters, locations, and campaign setup
+- **6 Professional Agents** for content generation and session management
+- **10 Core Workflows** covering preparation, encounters, locations, and campaign setup
 - **D&D 2024 Edition Support** with accurate rules and mechanics
 - **Professional Interface** focused on practical utility without themed personalities
 
@@ -18,20 +18,20 @@ npx bmad-method@alpha install dm-assistant
 
 ## Components
 
-### Agents (7)
+### Agents (6)
 
 **Content Generation Specialists:**
 - **NPC Generator** - Creates detailed NPCs with stats, personality, and backstory for D&D 2024
 - **Shop Generator** - Generates merchants, inventories, and pricing for settlements  
 - **Dungeon Generator** - Creates dungeon layouts, encounters, and treasure distributions
-- **Items Generator** - Custom magic items, mundane equipment, and treasure appropriate to campaign level
+- **Items Generator** - (Planned) Custom magic items, mundane equipment, and treasure appropriate to campaign level
 
 **Utility and Management:**
-- **Random Table Generator** - Creates and manages custom random tables for campaign elements
+- **Random Table Generator** - (Planned) Creates and manages custom random tables for campaign elements
 - **Session Manager** - Live session support, initiative tracking, and real-time assistance
 - **Campaign Manager** - Long-term campaign planning, story arcs, and campaign continuity
 
-### Workflows (4)
+### Workflows (10)
 
 **Core Workflows:**
 - **prep-session** - Complete session preparation using multiple generators
