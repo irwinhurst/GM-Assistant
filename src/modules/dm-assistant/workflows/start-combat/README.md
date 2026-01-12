@@ -1,45 +1,20 @@
 
 # Start Combat Workflow
 
-This workflow initializes and manages combat encounters in the DM Assistant system. It guides the DM through loading encounters, rolling initiative, setting up combat tracking, and managing turn-by-turn actions.
+This workflow initializes and manages combat encounters in the DM Assistant system. It guides the DM through loading encounters, setting up combat tracking, and responding to DM actions.
 
 ## Purpose
 - Set up combat tracking from the current area encounter
 - Generate combat-status and combat-log files for session management
-- Automate initiative and turn order for NPCs and PCs
-- Provide a structured process for running combat rounds
-
+- Do not attempt to roll initiative unless asked
+- Do not attempt to track combat rounds
 ## Pre-Combat Setup
 
 ### Encounter File Processing
 1. Load encounter from area file reference
 2. Parse enemy stat blocks and quantities
-3. Identify environmental hazards/features
-4. Set battlefield conditions
-
-### Initiative Management
-```yaml
-Initiative Order:
-  Round: 0
-  Turn: 0
-  Participants:
-    - name: "PC Name"
-      initiative: [DM Input Required]
-      type: "player"
-    - name: "Enemy 1"
-      initiative: [Auto-rolled]
-      type: "npc"
-```
-
-### Combat File Creation
-**combat-status.md Template:**
-```markdown
-# Combat Status - [Encounter Name]
-## Round [X] - [Current Character]'s Turn
-
-### Initiative Order
-1. Character (Initiative Score) - Status
-2. Enemy (Initiative Score) - Status
+3. Identify environmental hazards/features and inform the DM
+4. Set battlefield conditions and inform the DM
 
 ### Current Conditions
 - Character: [HP/Max], [Conditions]
@@ -47,40 +22,26 @@ Initiative Order:
 
 ### Environmental Factors
 [Lighting, terrain, weather, etc.]
-```
-
-**combat-log.csv Template:**
-```csv
-Round,Initiative,Character,Action,Target,Result,Damage,Conditions,HP_Remaining,Notes
-0,0,Combat,Start,All,Encounter Begins,0,,Full HP,Initiative rolled
-```
 
 ## Combat Flow Commands
-- `attack [target]` - Process attack action
-- `spell [spell name]` - Cast spell with effects
-- `move [distance]` - Character movement
-- `end-turn` - Advance to next in initiative
-- `damage [amount] [target]` - Apply damage
-- `heal [amount] [target]` - Apply healing
-- `condition [type] [target]` - Apply status condition
-- `end-combat` - Complete encounter
+- `[Attacker] attacks [target]` - Process attack action for the attacker, use the attacker's stats and the target's stats. Then respond with one sentence of flavor text.
+- `spell [spell name]` - Cast spell with effects, use the caster's stats. Then respond with one sentence of flavor text.
+- `damage [amount] [target]` - Apply damage to the target. Then respond with one sentence of flavor text.
+- `heal [amount] [target]` - Apply healing to the target. Then respond with one sentence of flavor text.
+- `condition [type] [target]` - Apply status condition to the target. Then respond with one sentence of flavor text.
+- `end-combat` - Complete encounter, update combat-status.md
+- `[Attacker] hits [target]` - Do not process the attack, just apply damanage to target. Then respond with one sentence of flavor text.
 
 ## Steps
 1. **Identify Encounter**
    - Load the encounter file from the current area
 2. **Create Combat Files**
-   - Generate combat-status.md and combat-log.csv for tracking
-3. **Roll Initiative**
-   - Auto-roll for NPCs, prompt for PC initiative
-4. **Setup Tracking**
+   - Generate combat-status.md for tracking
+3. **Setup Tracking**
    - Initialize turn order and Round 0 status
-5. **Begin Combat**
-   - Start turn-by-turn combat management
 
 ## Outputs
 - combat-status.md
-- combat-log.csv
-- session-log-entry.md
 
 ## Integration
 - Compatible with session-runner and campaign-manager agents
@@ -88,9 +49,7 @@ Round,Initiative,Character,Action,Target,Result,Damage,Conditions,HP_Remaining,N
 
 ## Best Practices
 - Ensure all encounter details are loaded before starting combat
-- Use combat-status.md to track initiative, HP, and effects
-- Update combat-log.csv after each action for accurate records
-- Review session-log-entry.md for post-combat summaries
+- Use combat-status.md HP, and effects
 
 ---
 *This README replaces combat-initialization.md for the start-combat workflow and includes all template and setup information.*

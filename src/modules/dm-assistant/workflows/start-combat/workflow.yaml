@@ -14,9 +14,7 @@ workflow:
     default_output_folder: '{project-root}/sessions/{session_name}/encounters/'
     default_output_files:
       - 'combat-status.md'
-      - 'combat-log.csv'
-      - 'session-log-entry.md'
-
+   
   integration:
     compatible_agents:
       - session-runner
@@ -33,20 +31,13 @@ workflow:
       
     - step: 'create-combat-files'
       title: 'Generate Combat Files'
-      description: 'Create combat-status.md and combat-log.csv'
-      
-    - step: 'roll-initiative'
-      title: 'Roll Initiative'
-      description: 'Auto-roll initiative for NPCs using d20+{initiative_bonus}, prompt for PC initiative'
+      description: 'Create combat-status.md'
       
     - step: 'setup-tracking'
       title: 'Initialize Combat Tracking'
       description: 'Set up turn order and Round 0 status'
       
-    - step: 'begin-combat'
-      title: 'Start Combat Rounds'
-      description: 'Begin turn-by-turn combat management'
-
+    
   web_bundle:
     name: 'start-combat'
     description: 'Workflow for initializing and tracking combat.'
@@ -61,6 +52,5 @@ workflow:
   completion:
     message: 'Combat initialized. Ready for Round 1 actions.'
     next_steps:
-      - 'Process each character and monster turn in initiative order'
       - 'Update combat log after each action'
       - 'Complete combat when DM declares end'
